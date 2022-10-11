@@ -1,0 +1,20 @@
+import request from "./request";
+
+
+export const GetSystemError = () => {
+  return request(
+    "/api/error/system/401",
+    {
+      method: "GET"
+    }
+  );
+}
+
+export const GetError = () => {
+  return request(
+    "/api/error/401",
+    {
+      method: "GET",
+    }
+  );
+}

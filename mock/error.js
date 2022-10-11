@@ -1,6 +1,6 @@
 module.exports = {
   "GET /api/error/system/401": (ctx) => {
-    ctx.throw(401, 'name required: 401');
+    ctx.throw(401);
   },
   "GET /api/error/system/403": (ctx) => {
     ctx.throw(403);

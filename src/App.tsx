@@ -2,13 +2,14 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.less';
 
-import { GetSystemError } from './services/user';
+import { GetSystemError, GetError } from './services/user';
 import { useRequest } from 'ahooks';
 
 
 function App() {
 
-  const { data, error, loading } = useRequest(GetSystemError);
+  useRequest(GetSystemError);
+  useRequest(GetError);
 
   return (
     <div className="App">

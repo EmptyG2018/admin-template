@@ -1,34 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.less';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.less";
+import store from "./store";
+import { Provider } from "react-redux";
 
-import { GetSystemError, GetError } from './services/user';
-import { useRequest } from 'ahooks';
 
+import { BrowserRouter } from "react-router-dom";
 
-function App() {
+import { GetSystemError, GetError } from "./services/user";
+import { useRequest } from "ahooks";
+import RouterMap from "./RouterMap";
 
+type Props = {
+  children: React.ReactElement;
+}
+
+const AppProvider: React.FC<Props> = ({ children }) => {
+  return (
+    // <Provider store={store}>{children}</Provider>
+    children
+  )
+};
+
+const App = () => {
   useRequest(GetSystemError);
   useRequest(GetError);
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppProvider>
+      <RouterMap />
+    </AppProvider>
   );
-}
+};
 
 export default App;

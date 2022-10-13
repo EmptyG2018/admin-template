@@ -1,5 +1,6 @@
 import { extend } from "umi-request";
 import type { RequestOptionsInit } from "umi-request";
+import { message } from "antd";
 
 export enum ErrCodeEnum {
   UNAUTHORIZED = 401,
@@ -8,23 +9,32 @@ export enum ErrCodeEnum {
   SERVERERROR = 500,
 }
 
-export const ERRORCODEMAP: { [key in ErrCodeEnum]: string } = {
-  401: "未权限",
-  403: "未权限",
+export const ERRORCODEMAP: { [key: number]: string } = {
+  401: "未授权",
+  403: "拒绝访问",
   404: "服务未找到",
-  500: "服务器操作",
+  500: "服务器错误",
 };
 
 const errorHandler = (error: any) => {
   if (error.response) {
     // 请求已发送但服务端返回状态码非 2xx 的响应
-    console.log(error.response.status);
-    console.log(error.response.headers);
-    console.log(error.data);
-    console.log(error.request);
+    console.log("status:", error.response.status);
+    console.log("headers:", error.response.headers);
+    console.log("data:", error.data);
+
+    message.error({
+      key: "request error 2",
+      content: ERRORCODEMAP[error.response.status] || ERRORCODEMAP[500],
+    });
   } else {
     // 请求初始化时出错或者没有响应返回的异常
     console.log("error：", error.message);
+
+    message.error({
+      key: "request error 1",
+      content: error.message,
+    });
   }
 
   throw error; // 如果throw. 错误将继续抛出.

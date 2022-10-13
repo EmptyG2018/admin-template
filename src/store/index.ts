@@ -5,7 +5,7 @@ import childSlice from "./counter/childSlice";
 
 const store: any = configureStore({
   reducer: {
-    user: userSlice,
+    // user: userSlice,
     parent: parentSlice,
     child: childSlice,
   },

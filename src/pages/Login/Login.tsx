@@ -1,5 +1,6 @@
 import { Button, Checkbox, Form, Input } from "antd";
 import { LockOutlined } from "@ant-design/icons";
+import { FormattedMessage } from "react-intl";
 import React from "react";
 import styled from "styled-components";
 
@@ -96,7 +97,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onFinish }) => {
         </Form.Item>
         <Form.Item>
           <Button type="primary" htmlType="submit" size="large" block>
-            登 录
+            <FormattedMessage id="sign" defaultMessage="登录" />
           </Button>
         </Form.Item>
       </Form>
@@ -109,8 +110,16 @@ const LayoutPageSC = styled.div`
   background-color: #f0f2f5;
 `;
 
+const LayoutHeaderSC = styled.div`
+  height: 40px;
+`;
+
 const LayoutContainerSC = styled.div`
-  padding: 80px 0 320px 0;
+  padding: 64px 0 48px 0;
+`;
+
+const LayoutFooterSC = styled.div`
+  height: 124px;
 `;
 
 const Login: React.FC = () => {
@@ -120,10 +129,12 @@ const Login: React.FC = () => {
 
   return (
     <LayoutPageSC>
+      <LayoutHeaderSC />
       <LayoutContainerSC>
         <LoginTop />
         <LoginForm onFinish={handleFinish} />
       </LayoutContainerSC>
+      <LayoutFooterSC />
     </LayoutPageSC>
   );
 };

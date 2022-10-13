@@ -42,7 +42,7 @@ const LoginTop: React.FC = () => {
   return (
     <LoginTopSC>
       <LoginHeaderSC>
-        <LogoSC src={require('../../assets/logo.svg')} />
+        <LogoSC src={require("../../assets/logo.svg")} />
         <TitleSC>Ant Design</TitleSC>
       </LoginHeaderSC>
       <LoginDescSC>Ant Design 是西湖区最具影响力的 Web 设计规范</LoginDescSC>

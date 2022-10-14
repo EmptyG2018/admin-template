@@ -10,4 +10,22 @@ module.exports = {
       ],
     });
   },
+
+  "POST /api/auth/token": (ctx) => {
+    ctx.body = Mock.mock({
+      "code": 0,
+      "data": {
+        "access_token": "@guid()",
+        "refresh_token": "@guid()",
+        "expires_in": "@datetime('T')",
+      },
+      "msg": "success",
+    })
+  },
+
+  "GET /api/user/profile": (ctx) => {
+    ctx.body = Mock.mock({
+      "code": 0,
+    })
+  }
 };

@@ -1,7 +1,6 @@
 
 declare type ResponseOk = {
   code: number;
-  msg: string;
 };
 
 type ResponseData<T = any> = ResponseOk & {
@@ -10,8 +9,16 @@ type ResponseData<T = any> = ResponseOk & {
 
 
 declare namespace ARG {
+  type GetToken = {
+    username: string;
+    password: string;
+  }
 }
 
 declare namespace API {
-
+  type GetToken = ResponseData<{
+    access_token: string;
+    refresh_token: string;
+    expires_in: number;
+  }>
 }

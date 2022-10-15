@@ -4,6 +4,10 @@ import {
   Navigate,
 } from "react-router-dom";
 import React from "react";
+
+import WorkLayout from "./Layouts/WorkLayout";
+
+import Workplace from "./pages/Workplace";
 import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
 import Demo from "./Demo";
@@ -12,6 +16,16 @@ const routes = createBrowserRouter([
   {
     path: "/login",
     element: <Login />,
+  },
+  {
+    path: "/",
+    element: <WorkLayout />,
+    children: [
+      {
+        path: "/workplace",
+        element: <Workplace />,
+      },
+    ],
   },
   {
     path: "/demo",

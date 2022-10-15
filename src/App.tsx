@@ -2,6 +2,7 @@ import StoreProvider from "./StoreProvider";
 import LocalProvider from "./LocalProvider";
 import RouterProvider from "./RouterProvider";
 import React from "react";
+import "./App.css";
 
 type Props = {
   children: React.ReactElement;

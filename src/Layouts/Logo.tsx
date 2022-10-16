@@ -6,6 +6,7 @@ import styled from "styled-components";
 
 type Props = {
   to: To;
+  showTitle: boolean;
   icon?: string;
   title: string;
 };
@@ -24,7 +25,6 @@ const LogoLinkSC = styled(Link)`
 const LogoIconSC = styled.img`
   display: inline-block;
   height: 32px;
-  margin: 0 12px 0 0;
   vertical-align: middle;
 `;
 
@@ -37,15 +37,16 @@ const LogoTitleSC = styled(Typography.Title)`
     font-size: 18px;
     line-height: 32px;
     vertical-align: middle;
+    margin: 0 0 0 12px;
   }
 `;
 
-const Logo: React.FC<Props> = ({ to, icon, title, ...props }) => {
+const Logo: React.FC<Props> = ({ to, icon, title, showTitle, ...props }) => {
   return (
     <LogoWrapSC {...props}>
       <LogoLinkSC to={to}>
         {icon && <LogoIconSC src={icon} />}
-        <LogoTitleSC level={1}>{title}</LogoTitleSC>
+        {showTitle && <LogoTitleSC level={1}>{title}</LogoTitleSC>}
       </LogoLinkSC>
     </LogoWrapSC>
   );

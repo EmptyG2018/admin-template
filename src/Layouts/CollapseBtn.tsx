@@ -1,23 +1,32 @@
 import { Menu } from "antd";
 import type { MenuProps } from "antd";
-import { MailOutlined } from "@ant-design/icons";
+import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
 import React from "react";
 import styled from "styled-components";
 
 const CollapseBtnSC = styled.div``;
 
-const items: MenuProps["items"] = [
-  {
-    label: "Navigation One",
-    key: "mail",
-    icon: <MailOutlined />,
-  },
-];
+type Props = {
+  collapsed: boolean;
+  onChange: (collapsed: boolean) => void;
+};
 
-const CollapseBtn: React.FC = ({ ...props }) => {
+const CollapseBtn: React.FC<Props> = ({ collapsed, onChange, ...props }) => {
+  const items: MenuProps["items"] = [
+    {
+      key: "collapse",
+      icon: collapsed ? <MenuFoldOutlined /> : <MenuUnfoldOutlined />,
+    },
+  ];
+
   return (
     <CollapseBtnSC {...props}>
-      <Menu theme="dark" items={items} />
+      <Menu
+        selectable={false}
+        theme="dark"
+        items={items}
+        onClick={() => onChange(!collapsed)}
+      />
     </CollapseBtnSC>
   );
 };

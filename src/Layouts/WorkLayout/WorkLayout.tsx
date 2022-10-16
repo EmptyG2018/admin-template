@@ -1,11 +1,12 @@
-import { Layout } from "antd";
+import { Button, Layout } from "antd";
 import { Outlet } from "react-router-dom";
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 import Logo from "../Logo";
 import MenuSide from "../MenuSide";
 import CollapseBtn from "../CollapseBtn";
+import TopHeader from "../TopHeader";
 
 import logoSvg from "../../assets/logo.svg";
 
@@ -22,16 +23,24 @@ const WorkLayoutSideSC = styled(Layout.Sider)`
 `;
 
 const WorkLayout: React.FC = () => {
+  const [collapsed, setCollapsed] = useState(false);
+
   return (
     <WorkLayoutSC>
-      <WorkLayoutSideSC>
-        <Logo to="/" icon={logoSvg} title="Ant Design Pro" />
+      <WorkLayoutSideSC width={208} collapsed={collapsed} collapsedWidth={48}>
+        <Logo
+          to="/"
+          icon={logoSvg}
+          showTitle={!collapsed}
+          title="Ant Design Pro"
+        />
         <MenuSide />
-        <CollapseBtn />
+        <CollapseBtn collapsed={collapsed} onChange={setCollapsed} />
       </WorkLayoutSideSC>
-      <Layout.Content>
+      <Layout>
+        <TopHeader fixed nav={[<Button>111</Button>, <Button>gege</Button>]} />
         <Outlet />
-      </Layout.Content>
+      </Layout>
     </WorkLayoutSC>
   );
 };

@@ -70,10 +70,15 @@ const MenuSideSC = styled.div`
   overflow: hidden auto;
 `;
 
-const MenuSide: React.FC = ({ ...props }) => {
+
+const MenuSide: React.FC = () => {
   return (
-    <MenuSideSC {...props}>
-      <Menu theme="dark" items={items} />
+    <MenuSideSC>
+      <Menu
+        mode="inline"
+        theme="dark"
+        items={items}
+      />
     </MenuSideSC>
   );
 };

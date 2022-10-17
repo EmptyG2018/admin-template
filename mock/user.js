@@ -26,6 +26,16 @@ module.exports = {
   "GET /api/user/profile": (ctx) => {
     ctx.body = Mock.mock({
       "code": 0,
+      "data": {
+        "username": "@name()",
+        "sex": "@integer(1,2)",
+        "old": "@integer(10,100)",
+        "locale|1": [
+          "zh-CN",
+          "zh-HK",
+          "en-US",
+        ]
+      }
     })
   }
 };

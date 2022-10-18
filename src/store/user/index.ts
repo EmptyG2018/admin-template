@@ -6,10 +6,10 @@ const initialState = {
 };
 
 export const getToken = createAsyncThunk(
-  "user/GetToken",
-  async ({ username, password }: ARG.GetToken) => {
-    const getTokenOk = await GetToken({ username, password });
-    return getTokenOk.data;
+  "user/getToken",
+  async (formData: ARG.GetToken) => {
+    const getTokenOk = await GetToken(formData);
+    return getTokenOk;
   }
 );
 
@@ -22,10 +22,13 @@ export const counterSlice = createSlice({
     },
   },
   extraReducers(builder) {
-    builder.addCase(getToken.pending, (state) => {
-      console.log('getToken pending', state);
-      console.log("🚀 ~ 进行中！");
+    builder.addCase(getToken.fulfilled, (state, { payload }) => {
+      console.log('getToken fulfilled', payload);
+      console.log("🚀 ~ 已完成！");
     });
+    builder.addCase(getToken.rejected, () => {
+      console.log('ssss');
+    })
   },
 });
 

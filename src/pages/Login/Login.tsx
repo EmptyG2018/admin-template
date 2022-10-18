@@ -4,6 +4,7 @@ import { LockOutlined } from "@ant-design/icons";
 import { FormattedMessage } from "react-intl";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import type { AppDispatch } from "../../store";
 import { getToken } from "../../store/user";
 import styled from "styled-components";
 
@@ -161,12 +162,12 @@ type FormFieldsProps = {
 };
 
 const Login: React.FC = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const [loading] = useState(false);
   const [form] = Form.useForm<FormFieldsProps>();
 
   const handleFinish = async (formData: ARG.GetToken) => {
-    // dispatch(getToken(formData));
+    dispatch(getToken(formData));
   };
 
   return (

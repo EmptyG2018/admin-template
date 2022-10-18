@@ -1,11 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
-import userSlice from "./"
+import userSlice from "./user";
 import parentSlice from "./counter/parentSlice";
 import childSlice from "./counter/childSlice";
 
 const store: any = configureStore({
   reducer: {
-    // user: userSlice,
+    user: userSlice,
     parent: parentSlice,
     child: childSlice,
   },

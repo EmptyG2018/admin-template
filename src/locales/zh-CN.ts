@@ -2,6 +2,8 @@ export default {
   "system.application.logo": "Ant Design",
   "system.notfound.desc": "抱歉，您访问的页面不存在",
   "system.notfound.back": "回到首页",
+  "system.notauthorized.desc": "抱歉，您无权访问此页面",
+  "system.notauthorized.back": "回到首页",
   "system.login.desc": "Ant Design 是西湖区最具影响力的 Web 设计规范",
   "system.login.account": "账号",
   "system.login.password": "密码",

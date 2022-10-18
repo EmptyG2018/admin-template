@@ -2,6 +2,8 @@ export default {
   "system.application.logo": "Ant Design",
   "system.notfound.desc": "Sorry, the page you visited does not exist.",
   "system.notfound.back": "Back Home",
+  "system.notauthorized.desc": "Sorry, you are not authorized to access this page.",
+  "system.notauthorized.back": "Back Home",
   "system.login.desc":
     "Ant Design is the most influential web design specification in West Lake District",
   "system.login.account": "account",

@@ -2,9 +2,9 @@ import { Button, Checkbox, Form, Input } from "antd";
 import type { FormInstance } from "antd";
 import { LockOutlined } from "@ant-design/icons";
 import { FormattedMessage } from "react-intl";
-import { useRequest } from "ahooks";
-import { GetToken } from "../../services/user";
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { getToken } from "../../store/user";
 import styled from "styled-components";
 
 const LoginTopSC = styled.div`
@@ -161,13 +161,12 @@ type FormFieldsProps = {
 };
 
 const Login: React.FC = () => {
+  const dispatch = useDispatch();
+  const [loading] = useState(false);
   const [form] = Form.useForm<FormFieldsProps>();
-  const { runAsync: getTokenAsync, loading } = useRequest(GetToken, {
-    manual: true,
-  });
 
   const handleFinish = async (formData: ARG.GetToken) => {
-    const getTokenAsyncOk = await getTokenAsync({ ...formData });
+    // dispatch(getToken(formData));
   };
 
   return (

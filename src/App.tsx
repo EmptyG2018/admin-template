@@ -1,4 +1,5 @@
 import StoreProvider from "./StoreProvider";
+import AuthProvider from "./AuthProvider";
 import LocalProvider from "./LocalProvider";
 import RouterProvider from "./RouterProvider";
 import React from "react";
@@ -11,7 +12,9 @@ type Props = {
 const AppProvider: React.FC<Props> = ({ children }) => {
   return (
     <StoreProvider>
-      <LocalProvider>{children}</LocalProvider>
+      <AuthProvider>
+        <LocalProvider>{children}</LocalProvider>
+      </AuthProvider>
     </StoreProvider>
   );
 };

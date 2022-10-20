@@ -12,7 +12,7 @@ import Workplace from "./pages/Workplace";
 import Login from "./pages/Login";
 import NotFound from "./pages/NotFound";
 import NotAuthorized from "./pages/NotAuthorized";
-import Demo from "./Demo";
+import Demo from "./pages/Demo";
 
 const routes = createBrowserRouter([
   {

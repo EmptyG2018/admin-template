@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 
-const useAuth = () => {
+const useUser = () => {
   return useSelector((store: any) => store.user);
 }
 
-export default useAuth;
+export default useUser;

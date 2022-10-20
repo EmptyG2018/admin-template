@@ -3,6 +3,7 @@ import type { FormInstance } from "antd";
 import { LockOutlined } from "@ant-design/icons";
 import { FormattedMessage } from "react-intl";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import type { AppDispatch } from "../../store";
 import { getToken } from "../../store/user";
@@ -163,11 +164,13 @@ type FormFieldsProps = {
 
 const Login: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
+  const navigate = useNavigate();
   const [loading] = useState(false);
   const [form] = Form.useForm<FormFieldsProps>();
 
   const handleFinish = async (formData: ARG.GetToken) => {
     dispatch(getToken(formData));
+    navigate('/');
   };
 
   return (

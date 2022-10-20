@@ -42,7 +42,7 @@ module.exports = {
         "email": "@email()",
         "phone": /136\d{8}/,
         "sex": "@integer(1,2)",
-        "old": "@integer(10,100)",
+        "age": "@integer(10,100)",
         "locale|1": [
           "zh-CN",
           "zh-HK",

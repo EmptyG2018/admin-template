@@ -18,3 +18,9 @@ export const GetToken = (params: ARG.GetToken) => {
     data: params,
   });
 };
+
+export const GetProfile = () => {
+  return request<API.GetProfile>("/api/user/profile", {
+    method: "GET",
+  });
+};

@@ -84,6 +84,9 @@ module.exports = {
               "system.order.get",
             ]
           }
+        ],
+        "menus": [
+
         ]
       }
     })

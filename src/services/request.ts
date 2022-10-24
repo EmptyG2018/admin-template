@@ -44,6 +44,7 @@ const errorHandler = (error: any) => {
 };
 
 const request = extend({
+  prefix: 'http://127.0.0.1:9527',
   errorHandler,
 });
 

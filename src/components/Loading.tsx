@@ -17,7 +17,7 @@ const SpinContainer = styled.div`
 const Loading: React.FC<Props> = ({ description }) => {
   return (
     <SpinContainer>
-      <Space direction="vertical">
+      <Space direction="vertical" align="center">
         <Spin size="large" />
         {description && <Typography.Text>{description}</Typography.Text>}
       </Space>

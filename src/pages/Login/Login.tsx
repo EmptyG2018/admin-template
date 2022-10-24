@@ -169,8 +169,8 @@ const Login: React.FC = () => {
   const [form] = Form.useForm<FormFieldsProps>();
 
   const handleFinish = async (formData: ARG.GetToken) => {
-    dispatch(getToken(formData));
-    navigate('/');
+    await dispatch(getToken(formData));
+    navigate("/");
   };
 
   return (

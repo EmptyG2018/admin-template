@@ -1,39 +1,38 @@
-import React, { useEffect } from "react";
-import { Navigate } from "react-router-dom";
+import React from "react";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { getProfile } from "../store/user";
 import type { AppDispatch } from "../store";
+import LoadingPage from "./LoadingPage";
 import useAuth from "../hooks/useAuth";
 import useUser from "../hooks/userUser";
-import { delay } from "../utils";
 
 type Props = {
   element: React.ReactElement;
 };
 
 const Auth: React.FC<Props> = ({ element }) => {
+  const location = useLocation();
+  const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
   const { token } = useAuth();
   const { userInfo } = useUser();
 
-  useEffect(() => {
-    (async () => {
-      if (token && !userInfo) {
-        delay(3000);
-        dispatch(getProfile());
-      }
-    })();
-  }, [dispatch, token, userInfo]);
-
   if (token && !userInfo) {
-    return <p>loading...</p>;
+    dispatch(getProfile());
+
+    return <LoadingPage />;
   }
 
   if (token && userInfo) {
-    return element;
+    if (location.pathname === "/login") {
+      navigate(-1);
+    } else {
+      return element;
+    }
   }
 
-  return <Navigate to="/403" replace />;
+  return <Navigate to="/login" replace />;
 };
 
 export default Auth;

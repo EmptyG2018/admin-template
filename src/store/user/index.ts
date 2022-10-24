@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { GetToken, GetProfile } from "../../services/user";
 import storage from "store";
+import { delay } from "../../utils";
 
 const initialState: {
   token: string;
@@ -19,6 +20,7 @@ export const getToken = createAsyncThunk(
 );
 
 export const getProfile = createAsyncThunk("user/getProfile", async () => {
+  await delay(800);
   const getProfileOk = await GetProfile();
   return getProfileOk.data;
 });

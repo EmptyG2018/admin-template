@@ -6,9 +6,7 @@ type ActionProps = {
   children: React.ReactElement;
 };
 
-const ActionSC = styled.div`
-
-`;
+const ActionSC = styled.div``;
 
 export const Action: React.FC<ActionProps> = ({ children }) => {
   return <ActionSC>{children}</ActionSC>;

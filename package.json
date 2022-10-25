@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
+    "@ant-design/pro-components": "^2.3.25",
     "@babel/core": "^7.16.0",
     "@commitlint/cli": "^17.1.2",
     "@commitlint/config-conventional": "^17.1.0",
